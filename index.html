@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<!-- 1. Link to jQuery (1.8 or later), -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+		
+		<!-- fotorama.css & fotorama.js. -->
+		<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+		
+		<title>EzCarCare</title>
+	</head>
+	
+	<body>
+		<div class="wrapper">
+			<div class="row" id="header">
+				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
+				<a href="index.html"><img id="headerImage" src="Picture/Logo/Help_Logo.png" alt="Help University Logo" class="img-responsive"/></a><br>
+				<div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 visible-lg visible-md visible-sm">
+					<p id="visitorCount">Visitor Count:<br/>
+						<script type="text/javascript" src="http://services.webestools.com/cpt_visits/14398-10-5.js"></script>
+						<a href="http://www.webestools.com/" title="Tools services webmasters counters generators scripts tutorials free">
+						</a>
+					</p>
+				</div>
+				<div class="col-lg-offset-4 col-lg-4 col-sm-offset-4 col-sm-4 col-xs-12">
+					<form class="navbar-form navbar-left" action="search.php" method="post">
+						<div class="input-group">
+							<input type="text" name="search" class="form-control" placeholder="Search for..." required/>
+							<span class="input-group-btn">
+							<button class="btn btn-secondary" type="submit" value="Submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">		
+			<div class="row nav_row">
+				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
+				<div class="col-lg-offset-8 col-lg-4 col-sm-offset-8 col-sm-4 col-xs-12">
+					<a href="signup.html" class="btn btn-default" id="button"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+					<a href="login.html" class="btn btn-default" id="button"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+					<a href="adminlogin.html" class="btn btn-default" id="button"><span class="glyphicon glyphicon-wrench"></span> Admin Login</a>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
+			</div>
+			<div class="row nav_row">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span> 
+							</button>
+							<a class="navbar-brand visible-xs" href="#">Menu</a>
+						</div>
+						<div class="collapse navbar-collapse" id="myNavbar">
+							<ul class="nav nav-pills nav-justified">
+								<li class="active"><a href="index.html">Home</a></li>
+								<li class="dropdown"><a href="#">About</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Contact Us</a></li>
+									</ul>
+								</li>
+								<li class="dropdown"><a href="#">Programs</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">DIPLOMA</a></li>
+										<li class="dropdown-submenu"><a href="#">DEGREE </a>
+											<ul class="dropdown-menu">
+												<li><a href="#">INFORMATION TECHNOLOGY</a></li>
+												<li><a href="#">MOBILE COMPUTING </a></li>	
+												<li><a href="#">GAMES &amp; INTERACTIVE MEDIA</a></li>
+												<li><a href="#">BUSINESS INFORMATION MANAGEMENT</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li class="dropdown"><a href="applicationMustLogin.html">Application</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Requirements</a></li>
+									</ul>
+								</li>
+								<li class="dropdown"><a href="event.html">Events</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Competition</a></li>
+									</ul>
+								</li>
+								<li><a href="partner.html">Partners</a></li>
+								<li><a href="#">E-Library</a></li>
+								<li><a href="#">E-Learning</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+			
+			<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
+			
+			<div class="row">
+				<div class="col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-3 visible-lg visible-md visible-sm">
+					<ul class="nav nav-pills nav-stacked" id="eventlist">
+						<li class="dropdown-submenu eventmenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Confucian Workshop</a>
+							<ul class="dropdown-menu event">
+								<li>
+									<p>
+										<b>Confucian Workshop</b>
+										<img src="Picture/Event/Confucian_1.jpg" alt="Confucian Workshop" class="img-responsive"/>
+									</p>
+									<p>Department of IT, HELP University, organised Game Development Workshop at Confucian 
+										High School, from January 2013 until June 2013.</p> 
+									<a href="confucion.html" class="btn btn-default pull-right">Read More</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu eventmenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Christmas Dinner 2012</a>
+							<ul class="dropdown-menu event">
+								<li>
+									<p>
+										<b>Christmas Dinner 2012</b>
+										<img src="Picture/Event/Christmas2012_1.jpg" alt="Christmas Dinner 2012" class="img-responsive"/>
+									</p>
+									<p>Department of IT, HELP University, organised a Christmas Dinner (2012) at MoMo Paradise, 
+										Kepong Manjalara (6.30pm - 10.30pm), on 14th December 2012 (Friday). </p> 
+									<a href="christmas.html" class="btn btn-default pull-right">Read More</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu eventmenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Annual Dinner 2012</a>
+							<ul class="dropdown-menu event">
+								<li>
+									<p>
+										<b>Annual Dinner 2012</b>
+										<img src="Picture/Event/AnnualDinner2012_1.jpg" alt="Annual Dinner 2012" class="img-responsive"/>
+									</p>
+									<p>Department of IT, HELP University, organised a Department of IT Annual Dinner (2012) at The Hills
+									- Damansara Height (6.30pm - 10.30pm), on 14th September 2012 (Friday). </p> 
+									<a href="annual.html" class="btn btn-default pull-right">Read More</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu eventmenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP Cyber Game 2012 (HCG3)</a>
+							<ul class="dropdown-menu event">
+								<li>
+									<p>
+										<b>HELP Cyber Game 2012 (HCG3)</b>
+										<img src="Picture/Event/CyberGame2012_1.jpg" alt="HELP Cyber Game 2012 (HCG3)" class="img-responsive"/>
+									</p>
+									<p>Department of IT, HELP University, organised HELP Cyber Game 2012 (HCG3) together with C2AGE, at 
+									Tropicana City Mall (10.00am - 8.30pm), on 18th - 20th May 2012.</p> 
+									<a href="#" class="btn btn-default pull-right">Read More</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu eventmenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Team Building Trip (PENANG)</a>
+							<ul class="dropdown-menu event">
+								<li>
+									<p>
+										<b>Team Building Trip (PENANG)</b>
+										<img src="Picture/Event/TeamBuilding_1.jpg" alt="Team Building Trip (PENANG)" class="img-responsive"/>
+									</p>
+									<p>Department of IT, HELP University, organised a Team building trip to Penang on April 2012.</p> 
+									<a href="#" class="btn btn-default pull-right">Read More</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu eventmenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">NCSM Microsite Launch</a>
+							<ul class="dropdown-menu event">
+								<li>
+									<p>
+										<b>NCSM Microsite Launch</b>
+										<img src="Picture/Event/NCSM_1.png" alt="NCSM Microsite Launch" class="img-responsive"/>
+									</p>
+									<p>National Cancer Society Malaysia Microsite Launch</p> 
+									<a href="#" class="btn btn-default pull-right">Read More</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu eventmenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP TECHDAY 2012</a>
+							<ul class="dropdown-menu event">
+								<li>
+									<p>
+										<b>HELP TECHDAY 2012</b>
+										<img src="Picture/Event/HelpTechDay2012_1.jpg" alt="HELP TECHDAY 2012 " class="img-responsive"/>
+									</p>
+									<p>HELP TECHDAY 2012</p> 
+									<a href="#" class="btn btn-default pull-right">Read More</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-lg-offset-1 col-lg-6 col-sm-offset-1 col-sm-6 col-xs-12">
+					<div class="fotorama" data-autoplay="true" data-width="600" data-height="auto" data-loop="true">
+						<div data-img="Picture/Main_Slideshow/slide2.jpg" data-caption="Information Technology"><a href="#"></a></div>
+						<div data-img="Picture/Main_Slideshow/annualdinner.jpg" data-caption="Annual Dinner 2012"><a href="annual.html"></a></div>
+						<div data-img="Picture/Main_Slideshow/rsz_help-building-1024x662.jpg" data-caption="Help University Campus">
+							<a href="#"></a></div>
+						<div data-img="Picture/Main_Slideshow/In_class.jpg" data-caption="Lecturer and Students"><a href="#"></a></div>
+					</div>
+				</div>
+			</div>	
+			
+			<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
+			
+			<div class="row">
+				<div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12">
+					<h3>Courses Provided:</h3>
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Information Technology</a>
+								</h4>
+							</div>
+							<div id="collapse1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-lg-4 col-sm-4 col-xs-12">
+											<img src="Picture/CourseLogo/BITImage1.jpg" alt="Information Technology" class="img-responsive"/>
+										</div>
+										<div class="col-lg-8 col-sm-8 col-xs-12">
+											<p>Information Communication Technology (ICT) is the convergence of Information Technology, 
+											Telecommunications and Data Networking Technologies. It is a broad subject concerned with 
+											technology and other aspects of managing and processing information. IT covers a multitude of 
+											jobs in processing, analysing, storing and conveying information, whether working on the internet
+											or on the systems for guiding rockets. Graduates with work experience and strong technical skills 
+											will be snapped up first. Jobs in this area remain a significant feature of graduate recruitment, 
+											and the long-term outlook is positive in global terms. There is a growth in e-commerce, mobile 
+											computing, netwroking, and digital media and the use of databases.</p>
+											<a href="#" class="btn btn-default pull-right">Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">MOBILE COMPUTING (ANDROID/ IOS)</a>
+								</h4>
+							</div>
+							<div id="collapse2" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-lg-4 col-sm-4 col-xs-12">
+											<img src="Picture/CourseLogo/BMCImage1.jpg" alt="MOBILE COMPUTING (ANDROID/ IOS)" class="img-responsive"/>
+										</div>
+										<div class="col-lg-8 col-sm-8 col-xs-12">
+											<p>Mobile Computing is the FUTURE!! The latest developments in mobile computing provides 
+											the ability for users to communicate via social applications and games, at their own pace. 
+											Although mobile devices, applications, platforms, games and communication are changing rapidly 
+											and constantly, our Mobile Computing course enables you to explore the technology through a 
+											grounding in computing basics with mobile networking concepts, and focuses on mobile and 
+											portable devices such as tablets and mobile phones (iOS, Android and Windows Mobile platform). 
+											With the skills learned, you can apply your ideas to develop new and exciting mobile applications 
+											for existing and emerging hardware.</p>
+											<a href="#" class="btn btn-default pull-right">Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">BUSINESS INFORMATION MANAGEMENT</a>
+								</h4>
+							</div>
+							<div id="collapse3" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-lg-4 col-sm-4 col-xs-12">
+											<img src="Picture/CourseLogo/BIMImage1.jpg" alt="BUSINESS INFORMATION MANAGEMENT" class="img-responsive"/>
+										</div>
+										<div class="col-lg-8 col-sm-8 col-xs-12">
+											<p>Business Information Management offers a thorough understanding of the issues involved 
+											in developing and managing information systems in a contemporary business context, particularly 
+											the extracting and interpreting of data. This is the most "technical" area in BIM - smart 
+											intelligence for smarter decision. Besides, BIM provides knowledge on the technologies used 
+											in information management, such as online database systems, data warehousing and business intelligence 
+											and artificial intelligence techniques in information management. The programme is geared towards producing 
+											graduates whose roles are to plan, coordinate and design business intelligent-related activities in order to 
+											fulfill the strategic needs of the organizations in which they are based.</p>
+											<a href="#" class="btn btn-default pull-right">Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">GAMES &amp; INTERACTIVE MEDIA</a>
+								</h4>
+							</div>
+							<div id="collapse4" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col-lg-4 col-sm-4 col-xs-12">
+										<img src="Picture/CourseLogo/BSCImage1.jpg" alt="GAMES &amp; INTERACTIVE MEDIA" class="img-responsive"/>
+									</div>
+									<div class="col-lg-8 col-sm-8 col-xs-12">
+										<p>One of the world’s fastest growing industries, electronic games have contributed 
+										yearly revenues of billions dollars to the economy (e.g. United States). Video games 
+										have come a long way since the introduction of "Pacman", a virtual world to the gamers. 
+										To immerse the gamers, game developer will have to learn how to develop stories and characters 
+										for the game, animation, digital sound, level design, and artificial intelligence to "react" based 
+										on human players' next move. Besides, games are used as learning tool (educational game) where 
+										players use math skills to complete missions and advance to the next level of play. The basics of 
+										computing and IT skills are also introduced, such as programming skills. This ensures students to 
+										have a wider and marketable set of skills beyond just games design and development. These skills 
+										can also be applied to the challenges in the gaming and media industries.</p>
+										<a href="#" class="btn btn-default pull-right">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+		
+		<footer>
+			<div id="footerbar">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:20px"></div>
+						<div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-5 visible-lg visible-md visible-sm">
+						<div class="row">
+							<h5 id="footerText">STUDENT PROJECT</h5>
+							<div class="row">
+								<div class="col-lg-3 col-sm-3">
+									<a href="#" title="DreamCar Show Room(Interactive Media Application)" data-placement="bottom" 
+										data-toggle="modal" data-target="#modal1">
+									<img src="Picture/FooterImage/dreamcar.jpg" class="img-responsive img-rounded" alt="DreamCar Show Room" 
+									style="height:100px;width:100px;border:1px solid #CFCFCF;"></a>
+									<div id="modal1" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+											<div class="model-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h3 class="modal-title">DreamCar Show Room(Interactive Media Application)</h3>
+											</div>
+											<div class="modal-body">
+												<img src="Picture/FooterImage/dreamcar.jpg" class="img-responsive" alt="DreamCar Show Room">
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-3">
+									<a href="#" title="Joe Jump(Platform Game)" data-placement="bottom" 
+										data-toggle="modal" data-target="#modal2">
+									<img src="Picture/FooterImage/joejump.png" class="img-responsive img-rounded" alt="Joe Jump" 
+										style="height:100px;width:100px;border:1px solid #CFCFCF;"></a>
+									<div id="modal2" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+											<div class="model-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h3 class="modal-title">Joe Jump(Platform Game)</h3>
+											</div>
+											<div class="modal-body">
+											<img src="Picture/FooterImage/joejump.png" class="img-responsive" alt="Joe Jump">
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-3">
+									<a href="#" title="Disaster Warning System(Mobile Application)" data-placement="bottom" 
+										data-toggle="modal" data-target="#modal3">
+									<img src="Picture/FooterImage/disasterwarning.png" class="img-responsive img-rounded" alt="Disaster Warning System" 
+										style="height:100px;width:100px;border:1px solid #CFCFCF;"></a>
+									<div id="modal3" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+											<div class="model-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h3 class="modal-title">Disaster Warning System(Mobile Application)</h3>
+											</div>
+											<div class="modal-body">
+											<img src="Picture/FooterImage/disasterwarning.png" class="img-responsive" alt="Disaster Warning System">
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-3">
+									<a href="#" title="Game Castle(3D Modeling)" data-placement="bottom" 
+										data-toggle="modal" data-target="#modal4">
+									<img src="Picture/FooterImage/gamecastle.jpg" class="img-responsive img-rounded" alt="Game Castle" 
+										style="height:100px;width:100px;border:1px solid #CFCFCF;"></a>
+									<div id="modal4" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+											<div class="model-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h3 class="modal-title">Game Castle(3D Modeling)</h3>
+											</div>
+											<div class="modal-body">
+											<img src="Picture/FooterImage/gamecastle.jpg" class="img-responsive" alt="Game Castle">
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:40px"></div>
+							<div class="col-lg-12 col-sm-12 col-xs-12">
+								<h5 id="footerText">WHAT PEOPLE SAY ABOUT US</h5><br/>
+								<div id="carousel" class="carousel slide" data-ride="carousel">
+
+								<div class="carousel-inner" role="listbox">
+								<div class="item active">
+									<small id="footerText">Su Sheng Loong (BIT)</small><br/><br/>
+									<p id="footerText"><small>HELP University has provided me with a good and conducive learning environment. The course is well-structured and I have gained useful 
+									knowledge/skills. Moreover, lecturers are very professional and approachable.</small></p>
+								</div>
+								<div class="item">
+									<small id="footerText">Evelyn Gemila (BIT)</small><br/><br/>
+									<p id="footerText"><small>I love being a student at HELP University as the lecturers and staff in department of IT are very caring, nice and dedicated. I have 
+									friends from different countries, and I have discovered social skills. Basically, my experience at HELP was awesome!</small></p>
+								</div>
+								<div class="item">
+									<small id="footerText">Lim Chun Chai (BIT)</small><br/><br/>
+									<p id="footerText"><small>The BIT program emphasizes practical development of systems and applications in the business context. It has prepared me to work 
+									as a System Analyst in a multinational company, that's how I succeeded in establishing Enovade Sdn. Bhd.</small></p>
+								</div>
+								<div class="item">
+									<small id="footerText">Arthur Ngui Kin Seng (BIT)</small><br/><br/>
+									<p id="footerText"><small>The Bachelor of Information Technology credit transfer program (HELP University and University of Queensland) is an excellent program 
+									with good mix of theory and practical learning experiences, delivered by lecturer that consistently win teaching awards and links 
+									to industry partners.</small></p>
+								</div>
+								<div class="item">
+									<small id="footerText">Chooi Yit Ming (BIT)</small><br/><br/>
+									<p id="footerText"><small>The BIT program at HELP University has been absolutely amazing and the faculty staff haven been extremely helpful. This is the best 
+									educational experience I received. The amount of knowledge you will gain in just 3 years is beyond believe. This is a great University!!!</small></p>
+								</div>
+								<div class="item">
+									<small id="footerText">Prof Paul Strooper (University of Queensland)</small><br/><br/>
+									<p id="footerText"><small>University of Queensland is proud of its strong links with HELP University forged over many years of exchange and collaboration. HELP 
+									students have maintained distinguished record at University of Queensland's School of Information Technology and Electrical Engineering.</small></p>
+								</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 visible-lg visible-md visible-sm">
+							<h5 id="footerText">OUR SERVICES</h5>
+							<ul class="listStyle">
+								<li><a href="#"><small>ABOUT</small></a></li>
+								<li><a href="#"><small>PROGRAMS</small></a></li>
+								<li><a href="applicationMustLogin.html"><small>APPLICATION</small></a></li>
+								<li><a href="event.html"><small>EVENTS</small></a></li>
+								<li><a href="partner.html"><small>PARTNERS</small></a></li>
+							</ul>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<div class="row">
+								<div class="col-lg-12 col-sm-12 col-xs-6">
+									<h5 id="footerText">FOLLOW US</h5>
+									<p id="footerText"><small>Facebook: </br><a href="https://www.facebook.com/groups/HELPUniDeptITClass/">www.facebook.com/HELPUniDeptIT</a></small></p>
+									
+									<div class="row">
+										<div class="col-lg-6 col-sm-6 col-xs-6">
+											<img src="Picture/FooterImage/qrfacebook.png" alt="QR code of IT Department facebook" class="img-responsive" style="height:80px;width:80px">
+										</div>
+										<div class="col-lg-6 col-sm-6 col-xs-6">
+											<a href="https://www.facebook.com/HELPUniDeptIT">
+												<img src="Picture/FooterImage/Facebook.png" alt="Facebook Logo" class="img-responsive" style="height:85px;width:85px">
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12 visible-lg visible-md visible-sm" style="height:20px"></div>
+								<div class="col-lg-12 col-sm-12 col-xs-6">
+									<h5 id="footerText">LOCATE US</h5>
+									<p id="footerText"><small>HELP University</br>BZ-2, Pusat Bandar Damansara (Main Block)</br>50490 Kuala Lumpur, Malaysia</br>
+									<span class="glyphicon glyphicon-earphone"></span> Tel: +6 03 20942000</br>
+									<span class="glyphicon glyphicon-print"></span> Fax: +6 03 20957100</small></p>
+									<div class="row">
+										<div class="col-lg-6 col-sm-6 col-xs-6">
+											<img src="Picture/FooterImage/qrlocation.png" alt="QR code of location" class="img-responsive" style="height:80px;width:80px">
+										</div>
+										<div class="col-lg-6 col-sm-6 col-xs-6">
+											<a href="https://www.google.com/maps/d/viewer?ll=3.147951%2C101.664584&spn=0.011784%2C0.012853&msa=0&z=16&source=embed&ie=UTF8&mid=1KvOIUsIZjSsa15_fJLPfZVBTDdM">
+											<img src="Picture/FooterImage/GoogleMapsIcon.png" alt="google maps icon" class="img-responsive" style="height:100px;width:100px;margin-top:-7px;"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:20px"></div>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:20px"></div>
+			<div class="container">
+				<small class="pull-right"><b>COPYRIGHT &copy; 2016 DEPARTMENT OF IT, HELP UNIVERSITY</b></small> 
+			</div>
+		</footer>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:20px"></div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
