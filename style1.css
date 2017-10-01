@@ -18,6 +18,13 @@
 	background-image:url(Picture/header_background.png);
 }
 
+#logoTitle
+{
+	color: #DB320E; 
+	font-weight: bold; 
+	font-style: italic
+}
+
 .nav_row
 {
 	width:90%;
