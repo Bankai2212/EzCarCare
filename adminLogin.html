@@ -95,179 +95,54 @@
 			
 			<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
 			
-			<div class="row">
-				<div class="col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-3 visible-lg visible-md visible-sm">
-					<ul class="nav nav-pills nav-stacked" id="servicelist">
-						<li class="dropdown-submenu servicemenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vehicle Interior</a>
-							<ul class="dropdown-menu service">
-								<li>
-									<p>
-										<b>Vehicle Interior</b>
-										<img src="Picture/servicePic/VehicleInterior.jpg" alt="VehicleInterior" class="img-responsive"/>
-									</p>
-									<ul>
-										<li><p>Check instruments, gauges, warning lights</p></li>
-										<li><p>Check horn</p></li>
-										<li><p>Check windscreen wipers</p></li>
-									</ul> 
-									<a href="#" class="btn btn-default pull-right">Read More</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu servicemenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vehicle Exterior</a>
-							<ul class="dropdown-menu service">
-								<li>
-									<p>
-										<b>Vehicle Exterior</b>
-										<img src="Picture/servicePic/VehicleExterior.jpg" alt="VehicleExterior " class="img-responsive"/>
-									</p>
-									<ul>
-										<li><p>Check exterior lights & lamps</p></li>
-									</ul> 
-									<a href="#" class="btn btn-default pull-right">Read More</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu servicemenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Under the bonnet</a>
-							<ul class="dropdown-menu service">
-								<li>
-									<p>
-										<b>Under the bonnet</b>
-										<img src="Picture/servicePic/underbonet.jpg" alt="UnderBonet" class="img-responsive"/>
-									</p>
-									<ul>
-										<li><p>Check battery</p></li>
-										<li><p>Check battery wiring</p></li>
-										<li><p>Test electrics (battery, alternator, starter motor)</p></li>
-									</ul> 
-									<a href="#" class="btn btn-default pull-right">Read More</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu servicemenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Under the Vehicle</a>
-							<ul class="dropdown-menu service">
-								<li>
-									<p>
-										<b>Under the Vehicle</b>
-										<img src="Picture/servicePic/UndertheVehicle.jpg" alt="UndertheVehicle" class="img-responsive"/>
-									</p>
-									<ul>
-										<li><p>Visual brake check</p></li>
-									</ul>  
-									<a href="#" class="btn btn-default pull-right">Read More</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu servicemenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Service Item Replacement</a>
-							<ul class="dropdown-menu service">
-								<li>
-									<p>
-										<b>Service Item Replacement</b>
-										<img src="Picture/servicePic/ServiceItemReplacement.jpg" alt="ServiceItemReplacement" class="img-responsive"/>
-									</p>
-									<ul>
-										<li><p>Replace engine oil and filter</p></li>
-										<li><p>Top up windscreen washer fluid</p></li>
-									</ul>  
-									<a href="#" class="btn btn-default pull-right">Read More</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu servicemenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Pre Alignment Check</a>
-							<ul class="dropdown-menu service">
-								<li>
-									<p>
-										<b>Pre Alignment Check</b>
-										<img src="Picture/servicePic/PreAlignmentCheck.png" alt="PreAlignmentCheck" class="img-responsive"/>
-									</p>
-									<ul>
-										<li><p>Check shock absorbers & springs</p></li>
-										<li><p>Full tyre inspection</p></li>
-									</ul> 
-									<a href="#" class="btn btn-default pull-right">Read More</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu servicemenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Final Checks</a>
-							<ul class="dropdown-menu service">
-								<li>
-									<p>
-										<b>Final Checks</b>
-										<img src="Picture/servicePic/FinalChecks.jpg" alt="FinalChecks" class="img-responsive"/>
-									</p>
-									<ul>
-										<li><p>Vehicle road test </p></li>
-									</ul> 
-									<a href="#" class="btn btn-default pull-right">Read More</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+			<h3 id="formHead">Admin Login</h3>
+			<form class="form-horizontal" action="adminLoginValidation.php" method="post">
+			
+				<fieldset>
+					<div class="container">
+						<div class="row">
+						
+							<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
+							
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Admin Name:</label>
+								<div class="col-lg-4 col-sm-4 col-xs-12">
+									<input type="text" name="AdminName" class="form-control inputbar" id="AdminName" required 
+										onfocus="focusing(this)" onblur="blurring(this)"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Password:</label>
+								<div class="col-lg-4 col-sm-4 col-xs-12">
+									<input type="password" name="AdminPassword" class="form-control inputbar" id="AdminPassword" required 
+										onfocus="focusing(this)" onblur="blurring(this)"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
+						
+				</fieldset>
 				
-				<div class="col-lg-offset-1 col-lg-6 col-sm-offset-1 col-sm-6 col-xs-12">
-					<div class="fotorama" data-autoplay="true" data-width="600" data-height="auto" data-loop="true">
-						<div data-img="Picture/mainslideshow/carservice.jpg" data-caption="Prefessional Car Service"><a href="#"></a></div>
-						<div data-img="Picture/mainslideshow/customerSatisfy.jpg" data-caption="Customer Care"><a href="#"></a></div>
-						<div data-img="Picture/mainslideshow/MobileCarrepair.jpg" data-caption="Flexible Car Repair">
-						<a href="#"></a>
+				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
+				
+				<div class="row">
+					<div class="form-group">
+						<div class="col-lg-6 col-sm-6 col-xs-6">
+							<input type="submit" name="submit" class="btn btn-success pull-right" id="applicationBtn" value="Submit"/>
 						</div>
-						<div data-img="Picture/mainslideshow/mechanicTeam.jpg" data-caption="Our Mechanic Team"><a href="#"></a></div>
+						<div class="col-lg-6 col-sm-6 col-xs-6">
+							<input type="reset" class="btn btn-danger" id="applicationBtn" value="Reset"/>
+						</div>
+						<div class="col-lg-12 col-md-12 col-xs-12" style="height:20px;"></div>
 					</div>
 				</div>
-			</div>	
+			</form>	
 			
-			<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
-			
-			<div class="row">
-				<div class="col-lg-offset-1 col-lg-11 col-sm-offset-1 col-sm-11 col-xs-12">
-					<h3>Our Features:</h3>
-				</div>
-				<div class="col-lg-1 col-sm-1 col-xs-12"></div>
-				<div class="col-lg-10 col-sm-10 col-xs-12" id="features">
-					<div class="row">
-						</br>
-						<div class="col-lg-3 col-sm-6 col-xs-12">
-							<div style="max-height: 100px">
-								<img src="Picture/Features/VarietyService.png" alt="Wide Variety of Services" class="img-responsive" id="featuresImg"/>
-							</div>
-							<h3 align="center">Wide Variety of Services</h3>
-							<p align="justify">EzCarCare is the most famous car service prodiver in the world! We have provided the most 
-								comprehensive car repair and maintenance services to address your needs!</p>
-							</br>
-						</div>
-						<div class="col-lg-3 col-sm-6 col-xs-12">
-							<div style="max-height: 100px">
-								<img src="Picture/Features/Rating.png" alt="5 Star Rating" class="img-responsive" id="featuresImg"/>
-							</div>
-							<h3 align="center">Customer's Best Choice</h3>
-							<p align="justify">EzCarCare has received 5 star rating from more than 80% of its customers!
-								We strives to maintain the quality of our services and further improve it to satisfy your needs!</p>
-							</br>
-						</div>
-						<div class="col-lg-3 col-sm-6 col-xs-12">
-							<div style="max-height: 100px">
-								<img src="Picture/Features/PayOnTheSpot.png" alt="Pay On The Spot" class="img-responsive" id="featuresImg"/>
-							</div>
-							<h3 align="center">Payment On The Spot</h3>
-							<p align="justify">Every transaction takes place among you and our technicians! After performed vehicle checking
-								on the spot, our technicians will reveal the exact fees and you are free to decide whether accept it or not!</p>
-							</br>
-						</div>
-						<div class="col-lg-3 col-sm-6 col-xs-12">
-							<div style="max-height: 100px">
-								<img src="Picture/Features/CustomerService.png" alt="Excellent Customer Service" class="img-responsive" id="featuresImg"/>
-							</div>
-							<h3 align="center">We Care About Our Customer</h3>
-							<p align="justify">24 hours customer service is available in EzCarCare! If you are facing any problems with our services, 
-								please feel free to contact our hotline (03-12309487) immediately!</p>
-							</br>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-1 col-sm-1 col-xs-12"></div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:20px"></div>
-			</div>		
+			<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>		
 		</div>
 		
 		<footer>
@@ -357,4 +232,16 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
+	<script type="text/javascript">
+	
+		function focusing(x)
+		{
+			x.style.background = "#e8f8ff";
+		}
+		
+		function blurring(x)
+		{
+			x.style.background = "white";
+		}
+	</script>
 </html>
