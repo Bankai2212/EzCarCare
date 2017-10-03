@@ -58,6 +58,10 @@
 				</div>
 				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
 			</div>
+			<fieldset>
+				<div class="container">
+					<div class="row">
+					<div class="col-lg-11 col-sm-11 col-xs-11">
 			<?php
 				session_start();
 				$servername = "localhost";
@@ -89,7 +93,11 @@
 				echo "</br>";
 				mysqli_close($con);
 
-				?>
+			?>
+					</div>
+					</div>
+				</div>
+			</fieldset>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:20px"></div>
 			<h3 id="formHead">Update Services</h3>
 			<form class="form-horizontal" action="updateSer.php" method="post" onsubmit="return checkNumber(this)">
