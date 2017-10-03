@@ -72,15 +72,25 @@
 				$sql="SELECT * FROM services WHERE serviceID=$id";
 				$result = mysqli_query($con, $sql);
 				$row = mysqli_fetch_assoc($result);
-				echo "service ID : " . $row["serviceID"]."</br>";
-				echo "Name : " . $row["serviceName"] . "</br>";
-				echo "Type : " . $row["serviceType"] . "</br>";
-				echo "Fees : " . $row["fees"] . "</br>";
-			
+				echo "<table class='table table-responsive'><h4>Service Selected</h4>";
+				echo "<tr>";
+				echo "<th>" . "ServiceID" . "</th>";
+				echo "<th>" . "Name" . "</th>";
+				echo "<th>" . "Type" . "</th>";
+				echo "<th>" . "Fees" . "</th>";
+				echo "</tr>";
+				echo "<tr>";
+				echo "<td>" . $row["serviceID"] . "</td>";
+				echo "<td>" . $row["serviceName"] . "</td>";
+				echo "<td>" . $row["serviceType"] . "</td>";
+				echo "<td>" . $row["fees"] . "</td>";
+				echo "</tr>";
+				echo "</table>";
+				echo "</br>";
 				mysqli_close($con);
 
 				?>
-			
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:20px"></div>
 			<h3 id="formHead">Update Services</h3>
 			<form class="form-horizontal" action="updateSer.php" method="post" onsubmit="return checkNumber(this)">
 				<fieldset>
