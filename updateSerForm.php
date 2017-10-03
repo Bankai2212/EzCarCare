@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -58,12 +58,33 @@
 				</div>
 				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
 			</div>
+			<?php
+				session_start();
+				$servername = "localhost";
+				$username = "root";
+				$password = "";
+				$dbname = "EzCarCareDB";
+				$con = new mysqli($servername, $username, $password, $dbname);
+	
+				
+				$id=$_GET['number'];
+				$_SESSION['serviceID'] = $id;
+				$sql="SELECT * FROM services WHERE serviceID=$id";
+				$result = mysqli_query($con, $sql);
+				$row = mysqli_fetch_assoc($result);
+				echo "service ID : " . $row["serviceID"]."</br>";
+				echo "Name : " . $row["serviceName"] . "</br>";
+				echo "Type : " . $row["serviceType"] . "</br>";
+				echo "Fees : " . $row["fees"] . "</br>";
 			
+				mysqli_close($con);
+
+				?>
 			
-			<h3 id="formHead">Record New Services</h3>
-			<form class="form-horizontal" action="serviceInput.php" method="post" onsubmit="return checkNumber(this)">
+			<h3 id="formHead">Update Services</h3>
+			<form class="form-horizontal" action="updateSer.php" method="post" onsubmit="return checkNumber(this)">
 				<fieldset>
-					<legend>New Service Details</legend>
+					<legend>Service Details</legend>
 					<div class="container">
 						<div class="row">
 							<div class="form-group">

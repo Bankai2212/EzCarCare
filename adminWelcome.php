@@ -1,6 +1,8 @@
-<!DOCTYPE html>
 <html>
 	<head>
+		<?php
+			session_start();
+		?>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -60,67 +62,93 @@
 			</div>
 			
 			
-			<h3 id="formHead">Record New Services</h3>
-			<form class="form-horizontal" action="serviceInput.php" method="post" onsubmit="return checkNumber(this)">
-				<fieldset>
-					<legend>New Service Details</legend>
-					<div class="container">
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
-									Service Name<span id="required">*</span></label>
-								<div class="col-lg-6 col-sm-6 col-xs-12">
-									<input type="text" name="serviceName" class="form-control inputbar" id="serviceName" required 
-										onfocus="focusing(this)" onblur="blurring(this)"/>
-								</div>
-							</div>
-						</div>
+			<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
+			
+			<fieldset>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
 						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Service Type
-									<span id="required">*</span></label>
-								<div class="col-lg-2 col-sm-2 col-xs-12">
-									<select class="form-control inputbar" name="serviceType" id="serviceType" required 
-										onfocus="focusing(this)" onblur="blurring(this)">
-										<option value="">--CHOOSE ONE-- </option>
-										<option value="Service"> Service </option>
-										<option value="Maintenance"> Maintenance </option>
-									</select>
-								</div>
-							</div>
+						<div class="col-lg-11 col-sm-11 col-xs-11">
+						<script type="text/javascript">
+							var now=new Date();
+							var hour= now.getHours();
+							if (hour<12)
+								document.write("Good Morning, ");
+							else if (hour<18)
+								document.write("Good Afternoon, ");
+							else if (hour<20)
+								document.write("Good Evening, ");
+							else
+								document.write("Good Night, ");
+						</script>
+							<?php
+								$name = $_SESSION['AdminName'];
+								echo $name . "!!!" . '</br>';
+								
+								$servername = "localhost";
+								$username = "root";
+								$password = "";
+								$dbname = "EzCarCareDB";
+								$con = new mysqli($servername, $username, $password, $dbname);
+								
+								$sql = "SELECT * from request,customer,services where request.customerID=customer.customerID and request.serviceID=services.serviceID";
+								$result = mysqli_query($con, $sql);
+								
+								if (mysqli_num_rows($result) > 0)
+								{
+									
+									
+									
+									echo "<table class='table table-responsive'><h4>Request List</h4>";
+									echo "<tr>";
+									
+									echo "<th>" . "RequestID" . "</th>";
+									echo "<th>" . "Description" . "</th>";
+									echo "<th>" . "Date" . "</th>";
+									echo "<th>" . "Time" . "</th>";
+									echo "<th>" . "Car Model" . "</th>";
+									echo "<th>" . "Address" . "</th>";
+									echo "<th>" . "Status" . "</th>";
+									echo "<th>" . "Service Name" . "</th>";
+									echo "<th>" . "Technician" . "</th>";
+									echo "<th>" . "Customer" . "</th>";
+									echo "</tr>";
+									while($row = mysqli_fetch_assoc($result))
+									{
+										
+										echo "<tr>";
+										echo "<td>" . $row["requestID"] . "</td>";
+										echo "<td>" . $row["description"] . "</td>";
+										echo "<td>" . $row["date"] . "</td>";
+										echo "<td>" . $row["time"] . "</td>";
+										echo "<td>" . $row["carModel"] . "</td>";
+										echo "<td>" . $row["requestAddress"] . "</td>";
+										echo "<td>" . $row["status"] . "</td>";
+										echo "<td>" . $row["serviceName"] . "</td>";
+										echo "<td></td>";
+										echo "<td>" . $row["userName"] . "</td>";
+										echo "</tr>";
+									}
+									echo "</table>";
+									echo "</br>";
+									
+								}
+								else
+								{
+									echo "There are no any entries for the request.";
+								}
+								
+								mysqli_close($con);
+							?>
+							
 						</div>
-						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Estimated Fees
-									<span id="required">*</span></label>
-								<div class="col-lg-2 col-sm-2 col-xs-12">
-									<input type="number" name="fees" class="form-control inputbar" id="fees" required 
-										onfocus="focusing(this)" onblur="blurring(this)"/>
-								</div>
-							</div>
-						</div>
-					</div>
-				</fieldset>
-				
-				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
-				
-				<div class="row">
-					<div class="form-group">
-						<div class="col-lg-offset-8 col-lg-2 col-sm-offset-8 col-sm-2 col-xs-6">
-							<input type="submit" name="submit" class="btn btn-success pull-right" id="submitBtn" value="Submit"/>
-						</div>
-						<div class="col-lg-2 col-sm-2 col-xs-6">
-							<input type="reset" class="btn btn-danger" id="resetBtn" value="Reset"/>
-						</div>
-						<div class="col-lg-12 col-md-12 col-xs-12" style="height:20px;"></div>
+						<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
 					</div>
 				</div>
-			</form>
+			</fieldset>
 			
-			<div class="col-lg-12 col-sm-12 col-xs-12" style="height:20px;"></div>
-		</div>
+		</div>		
 		
 		<footer>
 			<div id="footerbar">
@@ -209,27 +237,19 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
+	
 	<script type="text/javascript">
 		
-		function focusing(x)
-		{
-			x.style.background = "#e8f8ff";
+		function changecolor(x){
+			x.style.background="#e8f8ff";
 		}
-		
-		function blurring(x)
-		{
-			x.style.background = "white";
+		function norcolor(x){
+			x.style.background="white";
 		}
-		
-		function checkNumber(x)
+		function goPreviousPage() 
 		{
-			var number = x.fees.value;
-			
-			if(number <=0)
-			{
-				alert("Please enter a positive number for estimated fees!");
-				return false;
-			}
+			window.history.back();
 		}
 	</script>
 </html>
+
