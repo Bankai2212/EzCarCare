@@ -25,9 +25,9 @@
 			</div>
 			<div class="row" id="header">
 				<div class="col-lg-offset-2 col-lg-1 col-md-offset-2 col-md-1 col-sm-offset-2 col-sm-1">
-					<a href="index.html"><img id="headerImage" src="Picture/Logo/EzCarCareLogo.png" alt="EzCarCare Logo" class="img-responsive pull-left"/></a>
+					<a href="adminWelcome.php"><img id="headerImage" src="Picture/Logo/EzCarCareLogo.png" alt="EzCarCare Logo" class="img-responsive pull-left"/></a>
 				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2"><a href="index.html" id="logoTitle"><h1><b>EzCarCare</b></h1></a></div>
+				<div class="col-lg-2 col-md-2 col-sm-2"><a href="adminWelcome.php" id="logoTitle"><h1><b>EzCarCare</b></h1></a></div>
 			</div>
 			<div class="row" id="header">
 				<div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 visible-lg visible-md visible-sm">
@@ -105,30 +105,31 @@
 									echo "<tr>";
 									
 									echo "<th>" . "RequestID" . "</th>";
+									echo "<th>" . "Customer" . "</th>";
+									echo "<th>" . "Service Name" . "</th>";
 									echo "<th>" . "Description" . "</th>";
+									echo "<th>" . "Car Model" . "</th>";
 									echo "<th>" . "Date" . "</th>";
 									echo "<th>" . "Time" . "</th>";
-									echo "<th>" . "Car Model" . "</th>";
 									echo "<th>" . "Address" . "</th>";
-									echo "<th>" . "Status" . "</th>";
-									echo "<th>" . "Service Name" . "</th>";
+									echo "<th>" . "Status" . "</th>";									
 									echo "<th>" . "Technician" . "</th>";
-									echo "<th>" . "Customer" . "</th>";
+									
 									echo "</tr>";
 									while($row = mysqli_fetch_assoc($result))
 									{
 										
 										echo "<tr>";
 										echo "<td>" . $row["requestID"] . "</td>";
-										echo "<td>" . $row["description"] . "</td>";
-										echo "<td>" . $row["date"] . "</td>";
-										echo "<td>" . $row["time"] . "</td>";
-										echo "<td>" . $row["carModel"] . "</td>";
-										echo "<td>" . $row["requestAddress"] . "</td>";
-										echo "<td>" . $row["status"] . "</td>";
-										echo "<td>" . $row["serviceName"] . "</td>";
-										echo "<td></td>";
 										echo "<td>" . $row["userName"] . "</td>";
+										echo "<td>" . $row["serviceName"] . "</td>";
+										echo "<td>" . $row["description"] . "</td>";
+										echo "<td>" . $row["carModel"] . "</td>";
+										echo "<td>" . $row["date"] . "</td>";
+										echo "<td>" . $row["time"] . "</td>";										
+										echo "<td>" . $row["requestAddress"] . "</td>";
+										echo "<td>" . $row["status"] . "</td>";										
+										echo "<td></td>";										
 										echo "</tr>";
 									}
 									echo "</table>";
@@ -238,19 +239,5 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
-	
-	<script type="text/javascript">
-		
-		function changecolor(x){
-			x.style.background="#e8f8ff";
-		}
-		function norcolor(x){
-			x.style.background="white";
-		}
-		function goPreviousPage() 
-		{
-			window.history.back();
-		}
-	</script>
 </html>
 

@@ -25,9 +25,9 @@
 			</div>
 			<div class="row" id="header">
 				<div class="col-lg-offset-2 col-lg-1 col-md-offset-2 col-md-1 col-sm-offset-2 col-sm-1">
-					<a href="index.html"><img id="headerImage" src="Picture/Logo/EzCarCareLogo.png" alt="EzCarCare Logo" class="img-responsive pull-left"/></a>
+					<a href="adminWelcome.php"><img id="headerImage" src="Picture/Logo/EzCarCareLogo.png" alt="EzCarCare Logo" class="img-responsive pull-left"/></a>
 				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2"><a href="index.html" id="logoTitle"><h1><b>EzCarCare</b></h1></a></div>
+				<div class="col-lg-2 col-md-2 col-sm-2"><a href="adminWelcome.php" id="logoTitle"><h1><b>EzCarCare</b></h1></a></div>
 			</div>
 			<div class="row" id="header">
 				<div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 visible-lg visible-md visible-sm">
@@ -232,17 +232,6 @@
 	</body>
 	
 	<script type="text/javascript">
-		
-		function changecolor(x){
-			x.style.background="#e8f8ff";
-		}
-		function norcolor(x){
-			x.style.background="white";
-		}
-		function goPreviousPage() 
-		{
-			window.history.back();
-		}
 		function getID(x){ 
 			var number= x.name; 
 			window.location.href = "updateSerForm.php?number=" + number;
