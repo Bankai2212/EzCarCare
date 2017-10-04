@@ -18,6 +18,10 @@
 	background-image:url(Picture/headerBackground.png);
 }
 
+#footerbar{
+	z-index: 2;
+}
+
 #logoTitle
 {
 	color: #DB320E; 
@@ -267,20 +271,21 @@ hr
 	padding:10px 30px;
 }
 
-#Quesbox
+#calendarBox
 {
 	width:350px;
 	position:fixed;
-	right:0px;
-	bottom:0px;
+	right:10px;
+	top:10px;
+	z-index: 5;
 }
 
-#quesPanel
+#calendarPanel
 {
-	background-color:#22A2DD;
+	background-color:#8BC34A;
 }
 
-#quesPanel h4
+#calendarPanel h4
 {
 	color:white;
 	text-decoration:none;
