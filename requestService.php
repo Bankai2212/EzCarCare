@@ -54,7 +54,7 @@
 		<div class="container">		
 			<div class="row nav_row">
 				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
-				<div class="col-lg-offset-4 col-lg-8 col-sm-offset-2 col-sm-10 col-xs-12">
+				<div class="col-lg-offset-9 col-lg-3 col-sm-offset-8 col-sm-4 col-xs-12">
 					<a href="userWelcome.php" class="btn btn-default" id="button"> Home</a>
 					<a href="index.html" class="btn btn-default" id="button"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
 				</div>
@@ -70,7 +70,7 @@
 						<div class="row">
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
-									Problem Description<span id="required">*</span></label>
+									Request Description<span id="required">*</span></label>
 								<div class="col-lg-6 col-sm-6 col-xs-12">
 									<input type="text" name="description" class="form-control inputbar" id="description" required 
 										onfocus="focusing(this)" onblur="blurring(this)"/>
@@ -142,7 +142,39 @@
 							</div>
 						</div>
 										
-						
+						<div class="row">
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
+									Request Address<span id="required">*</span></label>
+								<div class="col-lg-6 col-sm-6 col-xs-12">
+									<input type="radio" name="address" value="default" checked="checked" style="margin-top:10px" onclick="chooseDefault()"/> 
+										Default address - 
+										<?php
+											$customerID = $_SESSION['CustomerID'];
+																						
+											$servername = "localhost";
+											$username = "root";
+											$password = "";
+											$dbname = "EzCarCareDB";
+											$con = new mysqli($servername, $username, $password, $dbname);
+											
+											$sql = "SELECT address from Customer where customerID='$customerID'";
+											$result = mysqli_query($con, $sql);
+											
+											if (mysqli_num_rows($result) > 0)
+											{
+												$row = mysqli_fetch_assoc($result);
+												echo $row["address"] . "</br>";
+											}								
+																						
+											mysqli_close($con);
+										?>
+									<input type="radio" name="address" value="new" onclick="chooseNew()"/> Other Address
+										<textarea name="newAddress" id="newAddress" class="form-control" required 
+											onfocus="focusing(this)" onblur="blurring(this)" disabled></textarea>
+								</div>
+							</div>
+						</div>
 						
 						<div class="row">
 							<div class="form-group">
@@ -336,6 +368,18 @@
 		function blurring(x)
 		{
 			x.style.background = "white";
+		}
+		
+		function chooseDefault()
+		{
+			document.getElementById("newAddress").disabled = true;
+			document.getElementById("newAddress").style.background = "white";
+		}
+		
+		function chooseNew()
+		{
+			document.getElementById("newAddress").disabled = false;
+			document.getElementById("newAddress").style.background = "#e8f8ff";
 		}
 		
 		function checkHP(x)
