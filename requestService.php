@@ -102,78 +102,46 @@
 						
 						<div class="row">
 							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">State
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Car Model
 									<span id="required">*</span></label>
 								<div class="col-lg-3 col-sm-3 col-xs-12">
-									<select class="form-control inputbar" name="techState" id="techState" required 
+									<select class="form-control inputbar" name="carModel" id="carModel" required 
 										onfocus="focusing(this)" onblur="blurring(this)">
 										<option value="">--CHOOSE ONE-- </option>
 										<?php
-											$name = $_SESSION['AdminName'];
-											echo $name . "!!!" . '</br>';
-											
+											$customerID = $_SESSION['CustomerID'];
+																						
 											$servername = "localhost";
 											$username = "root";
 											$password = "";
 											$dbname = "EzCarCareDB";
 											$con = new mysqli($servername, $username, $password, $dbname);
 											
-											$sql = "SELECT * from request,customer,services where request.customerID=customer.customerID and request.serviceID=services.serviceID";
+											$sql = "SELECT carModel1, carModel2, carModel3 from Customer where customerID='$customerID'";
 											$result = mysqli_query($con, $sql);
 											
 											if (mysqli_num_rows($result) > 0)
 											{
+												$row = mysqli_fetch_assoc($result);
+												$carModel1 = $row["carModel1"];
+												$carModel2 = $row["carModel2"];
+												$carModel3 = $row["carModel3"];
 												
-												
-												
-												echo "<table class='table table-responsive'><h4>Request List</h4>";
-												echo "<tr>";
-												
-												echo "<th>" . "RequestID" . "</th>";
-												echo "<th>" . "Customer" . "</th>";
-												echo "<th>" . "Service Name" . "</th>";
-												echo "<th>" . "Description" . "</th>";
-												echo "<th>" . "Car Model" . "</th>";
-												echo "<th>" . "Date" . "</th>";
-												echo "<th>" . "Time" . "</th>";
-												echo "<th>" . "Address" . "</th>";
-												echo "<th>" . "Status" . "</th>";									
-												echo "<th>" . "Technician" . "</th>";
-												
-												echo "</tr>";
-												while($row = mysqli_fetch_assoc($result))
-												{
-													
-													echo "<tr>";
-													echo "<td>" . $row["requestID"] . "</td>";
-													echo "<td>" . $row["userName"] . "</td>";
-													echo "<td>" . $row["serviceName"] . "</td>";
-													echo "<td>" . $row["description"] . "</td>";
-													echo "<td>" . $row["carModel"] . "</td>";
-													echo "<td>" . $row["date"] . "</td>";
-													echo "<td>" . $row["time"] . "</td>";										
-													echo "<td>" . $row["requestAddress"] . "</td>";
-													echo "<td>" . $row["status"] . "</td>";										
-													echo "<td></td>";										
-													echo "</tr>";
-												}
-												echo "</table>";
-												echo "</br>";
-												
-											}
-											else
-											{
-												echo "There are no any entries for the request.";
-											}
-											
+												if($carModel1 != "")
+													echo "<option value=\"" . $carModel1 . "\">" . $carModel1. "</option>";
+												if($carModel2 != "")
+													echo "<option value=\"" . $carModel2 . "\">" . $carModel2. "</option>";
+												if($carModel3 != "")
+													echo "<option value=\"" . $carModel3 . "\">" . $carModel3. "</option>";
+											}								
+																						
 											mysqli_close($con);
 										?>
 									</select>
 								</div>
 							</div>
 						</div>
-						
-						
+										
 						
 						
 						<div class="row">
