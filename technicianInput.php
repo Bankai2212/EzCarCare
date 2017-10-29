@@ -8,7 +8,7 @@
 	
 	if(isset($_POST['submit']))
 	{
-		//Saving service details into database
+		//Saving technician details into database
 		$techName = $_POST['techName'];
 		$techTelNo = $_POST['techTelNo'];
 		$techAddress = $_POST['techAddress'];

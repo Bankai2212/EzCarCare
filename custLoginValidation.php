@@ -6,7 +6,7 @@
 	$dbname = "EzCarCareDB";
 	$con = new mysqli($servername, $username, $password, $dbname);
 	
-	//Admin Validation
+	//User Validation
 	$CustomerName = $_POST['CustomerName'];
 	$CustomerPassword = $_POST['CustomerPassword'];
 	
