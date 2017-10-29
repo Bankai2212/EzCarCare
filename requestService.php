@@ -67,13 +67,51 @@
 				<fieldset>
 					<legend>Request Details</legend>
 					<div class="container">
+					
+						<div class="row">
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Service
+									<span id="required">*</span></label>
+								<div class="col-lg-4 col-sm-4 col-xs-12">
+									<select class="form-control inputbar" name="service" id="service" required 
+										onfocus="focusing(this)" onblur="blurring(this)">
+										<option value="">--CHOOSE ONE-- </option>
+										<?php																						
+											$servername = "localhost";
+											$username = "root";
+											$password = "";
+											$dbname = "EzCarCareDB";
+											$con = new mysqli($servername, $username, $password, $dbname);
+											
+											$sql = "SELECT * from Services";
+											$result = mysqli_query($con, $sql);
+											
+											if (mysqli_num_rows($result) > 0)
+											{
+												while($row = mysqli_fetch_assoc($result))
+												{
+													$serviceID = $row["serviceID"];
+													$serviceName = $row["serviceName"];
+													$fees = $row["fees"];
+													
+													echo "<option value=\"" . $serviceID . "\">" . $serviceName . " (RM" . $fees . ")" . "</option>";
+												}
+											}								
+																						
+											mysqli_close($con);
+										?>
+									</select>
+								</div>
+							</div>
+						</div>
+					
 						<div class="row">
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
 									Request Description<span id="required">*</span></label>
 								<div class="col-lg-6 col-sm-6 col-xs-12">
-									<input type="text" name="description" class="form-control inputbar" id="description" required 
-										onfocus="focusing(this)" onblur="blurring(this)"/>
+									<textarea name="description" id="description" class="form-control" required 
+											onfocus="focusing(this)" onblur="blurring(this)"></textarea>
 								</div>
 							</div>
 						</div>
@@ -170,83 +208,8 @@
 											mysqli_close($con);
 										?>
 									<input type="radio" name="address" value="new" onclick="chooseNew()"/> Other Address
-										<textarea name="newAddress" id="newAddress" class="form-control" required 
+										<textarea name="newAddress" id="newAddress" class="form-control" 
 											onfocus="focusing(this)" onblur="blurring(this)" disabled></textarea>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
-									Handphone No.<span id="required">*</span></label>
-								<div class="col-lg-3 col-sm-3 col-xs-12">
-									<input type="text" name="techTelNo" class="form-control inputbar" id="techTelNo" required 
-										onfocus="focusing(this)" onblur="blurring(this)"/>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
-									Address<span id="required">*</span></label>
-								<div class="col-lg-6 col-sm-6 col-xs-12">
-									<p>
-										<textarea name="techAddress" class="form-control" required 
-											onfocus="focusing(this)" onblur="blurring(this)"></textarea>
-									</p>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">State
-									<span id="required">*</span></label>
-								<div class="col-lg-3 col-sm-3 col-xs-12">
-									<select class="form-control inputbar" name="techState" id="techState" required 
-										onfocus="focusing(this)" onblur="blurring(this)">
-										<option value="">--CHOOSE ONE-- </option>
-										<option value="Perlis"> PERLIS </option>
-										<option value="Kedah"> KEDAH </option>
-										<option value="PulauPinang"> PULAU PINANG </option>
-										<option value="Perak"> PERAK </option>
-										<option value="Selangor"> SELANGOR </option>
-										<option value="NegeriSembilan"> NEGERI SEMBILAN </option>
-										<option value="Melaka"> MELAKA </option>
-										<option value="Johor"> JOHOR </option>
-										<option value="Pahang"> PAHANG </option>
-										<option value="Terengganu"> TERENGGANU </option>
-										<option value="Kelantan"> KELANTAN </option>
-										<option value="Sabah"> SABAH </option>
-										<option value="Sarawak"> SARAWAK </option>
-										<option value="WP Kuala Lumpur"> WP KUALA LUMPUR </option>
-										<option value="Labuan"> WP LABUAN </option>
-										<option value="Putrajaya"> WP PUTRAJAYA </option>
-									</select>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Email
-									<span id="required">*</span></label>
-								<div class="col-lg-6 col-sm-6 col-xs-12">
-									<input type="email" name="techEmail" class="form-control inputbar" id="techEmail" required 
-										onfocus="focusing(this)" onblur="blurring(this)"/>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Specialty
-									<span id="required">*</span></label>
-								<div class="col-lg-3 col-sm-3 col-xs-12">
-									<input type="text" name="specialty" class="form-control inputbar" id="specialty" required 
-										onfocus="focusing(this)" onblur="blurring(this)"/>
 								</div>
 							</div>
 						</div>
@@ -380,18 +343,6 @@
 		{
 			document.getElementById("newAddress").disabled = false;
 			document.getElementById("newAddress").style.background = "#e8f8ff";
-		}
-		
-		function checkHP(x)
-		{
-			var hp = x.techTelNo.value;
-			var search = hp.search(/\w/);
-			
-			if(search > 0)
-			{
-				alert("Please enter a valid handphone no.!");
-				return false;
-			}
 		}
 	</script>
 </html>
