@@ -16,7 +16,7 @@
 		$techEmail = $_POST['techEmail'];
 		$specialty = $_POST['specialty'];
 		
-		$sql = "INSERT INTO Services (techName, techTelNo, techAddress, techState, techEmail, specialty) 
+		$sql = "INSERT INTO Technician (techName, techTelNo, techAddress, techState, techEmail, specialty) 
 			VALUES ('$techName', '$techTelNo', '$techAddress', '$techState', '$techEmail', '$specialty')";
 		mysqli_query($con, $sql);
 	}
