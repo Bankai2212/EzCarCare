@@ -50,7 +50,7 @@
 		<div class="container">		
 			<div class="row nav_row">
 				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
-				<div class="col-lg-offset-6 col-lg-6 col-sm-offset-8 col-sm-4 col-xs-12">
+				<div class="col-lg-offset-4 col-lg-8 col-sm-offset-2 col-sm-10 col-xs-12">
 					<a href="adminWelcome.php" class="btn btn-default" id="button"> Home</a>
 					<a href="recordService.html" class="btn btn-default" id="button"> Record new service</a>
 					<a href="updateService.php" class="btn btn-default" id="button"> Update service</a>
