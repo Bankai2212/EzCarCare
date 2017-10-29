@@ -62,17 +62,17 @@
 			</div>
 			
 			
-			<h3 id="formHead">Record New Services</h3>
-			<form class="form-horizontal" action="serviceInput.php" method="post" onsubmit="return checkNumber(this)">
+			<h3 id="formHead">Record New Technician</h3>
+			<form class="form-horizontal" action="technicianInput.php" method="post">
 				<fieldset>
-					<legend>New Service Details</legend>
+					<legend>New Technician Details</legend>
 					<div class="container">
 						<div class="row">
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
-									Service Name<span id="required">*</span></label>
+									Technician Name<span id="required">*</span></label>
 								<div class="col-lg-6 col-sm-6 col-xs-12">
-									<input type="text" name="serviceName" class="form-control inputbar" id="serviceName" required 
+									<input type="text" name="techName" class="form-control inputbar" id="techName" required 
 										onfocus="focusing(this)" onblur="blurring(this)"/>
 								</div>
 							</div>
@@ -80,14 +80,52 @@
 						
 						<div class="row">
 							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Service Type
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
+									Handphone No.<span id="required">*</span></label>
+								<div class="col-lg-3 col-sm-3 col-xs-12">
+									<input type="text" name="techTelNo" class="form-control inputbar" id="techTelNo" required 
+										onfocus="focusing(this)" onblur="blurring(this)"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
+									Address<span id="required">*</span></label>
+								<div class="col-lg-6 col-sm-6 col-xs-12">
+									<p>
+										<textarea name="techAddress" class="form-control" required 
+											onfocus="focusing(this)" onblur="blurring(this)"></textarea>
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">State
 									<span id="required">*</span></label>
-								<div class="col-lg-2 col-sm-2 col-xs-12">
-									<select class="form-control inputbar" name="serviceType" id="serviceType" required 
+								<div class="col-lg-3 col-sm-3 col-xs-12">
+									<select class="form-control inputbar" name="techState" id="techState" required 
 										onfocus="focusing(this)" onblur="blurring(this)">
 										<option value="">--CHOOSE ONE-- </option>
-										<option value="Service"> Service </option>
-										<option value="Maintenance"> Maintenance </option>
+										<option value="Perlis"> PERLIS </option>
+										<option value="Kedah"> KEDAH </option>
+										<option value="PulauPinang"> PULAU PINANG </option>
+										<option value="Perak"> PERAK </option>
+										<option value="Selangor"> SELANGOR </option>
+										<option value="NegeriSembilan"> NEGERI SEMBILAN </option>
+										<option value="Melaka"> MELAKA </option>
+										<option value="Johor"> JOHOR </option>
+										<option value="Pahang"> PAHANG </option>
+										<option value="Terengganu"> TERENGGANU </option>
+										<option value="Kelantan"> KELANTAN </option>
+										<option value="Sabah"> SABAH </option>
+										<option value="Sarawak"> SARAWAK </option>
+										<option value="KL"> WP KUALA LUMPUR </option>
+										<option value="Labuan"> WP LABUAN </option>
+										<option value="Putrajaya"> WP PUTRAJAYA </option>
 									</select>
 								</div>
 							</div>
@@ -95,10 +133,21 @@
 						
 						<div class="row">
 							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Estimated Fees
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Email
 									<span id="required">*</span></label>
-								<div class="col-lg-2 col-sm-2 col-xs-12">
-									<input type="number" name="fees" class="form-control inputbar" id="fees" required 
+								<div class="col-lg-6 col-sm-6 col-xs-12">
+									<input type="email" name="techEmail" class="form-control inputbar" id="techEmail" required 
+										onfocus="focusing(this)" onblur="blurring(this)"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">Specialty
+									<span id="required">*</span></label>
+								<div class="col-lg-3 col-sm-3 col-xs-12">
+									<input type="text" name="specialty" class="form-control inputbar" id="specialty" required 
 										onfocus="focusing(this)" onblur="blurring(this)"/>
 								</div>
 							</div>
