@@ -91,20 +91,16 @@
 								$password = "";
 								$dbname = "EzCarCareDB";
 								$con = new mysqli($servername, $username, $password, $dbname);
-								
-								$sql = "SELECT * from request,customer,services where request.customerID=customer.customerID and request.serviceID=services.serviceID";
+								$CustomerID = $_SESSION['CustomerID'];
+								$sql = "SELECT * from request,customer,services,technician where request.customerID=customer.customerID and request.serviceID=services.serviceID and request.techID=technician.techID";
 								$result = mysqli_query($con, $sql);
 								
 								if (mysqli_num_rows($result) > 0)
 								{
-									
-									
-									
 									echo "<table class='table table-responsive'><h4>Request List</h4>";
 									echo "<tr>";
 									
 									echo "<th>" . "RequestID" . "</th>";
-									echo "<th>" . "Customer" . "</th>";
 									echo "<th>" . "Service Name" . "</th>";
 									echo "<th>" . "Description" . "</th>";
 									echo "<th>" . "Car Model" . "</th>";
@@ -120,15 +116,20 @@
 										
 										echo "<tr>";
 										echo "<td>" . $row["requestID"] . "</td>";
-										echo "<td>" . $row["userName"] . "</td>";
 										echo "<td>" . $row["serviceName"] . "</td>";
 										echo "<td>" . $row["description"] . "</td>";
 										echo "<td>" . $row["carModel"] . "</td>";
 										echo "<td>" . $row["date"] . "</td>";
 										echo "<td>" . $row["time"] . "</td>";										
 										echo "<td>" . $row["requestAddress"] . "</td>";
-										echo "<td>" . $row["status"] . "</td>";										
-										echo "<td></td>";										
+										echo "<td>" . $row["status"] . "</td>";	
+										if ($row["request.techID"] == null )
+										{
+											echo "<td>Pending</td>";
+										}
+										else{
+											echo "<td>" . $row["techName"] . "</td>";
+										}											
 										echo "</tr>";
 									}
 									echo "</table>";
