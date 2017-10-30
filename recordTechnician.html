@@ -275,9 +275,11 @@
 		function checkHP(x)
 		{
 			var hp = x.techTelNo.value;
-			var search = hp.search(/\w/);
+			var search = hp.search(/\D/);
+			alert(hp);
+			alert(search);
 			
-			if(search > 0)
+			if(search >= 0)
 			{
 				alert("Please enter a valid handphone no.!");
 				return false;
