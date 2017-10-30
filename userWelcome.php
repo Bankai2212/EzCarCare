@@ -92,7 +92,7 @@
 								$dbname = "EzCarCareDB";
 								$con = new mysqli($servername, $username, $password, $dbname);
 								$CustomerID = $_SESSION['CustomerID'];
-								$sql = "SELECT * from request,customer,services,technician where request.customerID=customer.customerID and request.serviceID=services.serviceID and request.techID=technician.techID";
+								$sql = "SELECT * from request,customer,services where request.customerID=customer.customerID and request.serviceID=services.serviceID and request.customerID='$CustomerID'";
 								$result = mysqli_query($con, $sql);
 								
 								if (mysqli_num_rows($result) > 0)
@@ -122,13 +122,18 @@
 										echo "<td>" . $row["date"] . "</td>";
 										echo "<td>" . $row["time"] . "</td>";										
 										echo "<td>" . $row["requestAddress"] . "</td>";
-										echo "<td>" . $row["status"] . "</td>";	
-										if ($row["request.techID"] == null )
+										echo "<td>" . $row["status"] . "</td>";
+										
+										if ($row["techID"] == null )
 										{
 											echo "<td>Pending</td>";
 										}
 										else{
-											echo "<td>" . $row["techName"] . "</td>";
+											$techID = $row["techID"];
+											$sql2 = "SELECT * from request,technician where request.techID=technician.techID and techID='$techID'";
+											$result2 = mysqli_query($con, $sql2);
+											$row2 = mysqli_fetch_assoc($result2);
+											echo "<td>" . $row2["techName"] . "</td>";
 										}											
 										echo "</tr>";
 									}
