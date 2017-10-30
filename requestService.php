@@ -56,6 +56,7 @@
 				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
 				<div class="col-lg-offset-9 col-lg-3 col-sm-offset-8 col-sm-4 col-xs-12">
 					<a href="userWelcome.php" class="btn btn-default" id="button"> Home</a>
+					<a href="requestService.php" class="btn btn-default" id="button"> Request for services</a>
 					<a href="index.html" class="btn btn-default" id="button"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
 				</div>
 				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
