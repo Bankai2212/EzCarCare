@@ -101,7 +101,9 @@
 								{
 									
 									
-									
+									$count = 1;
+									$quesList=array();
+									echo "<form method='post' action='assignTech.php'>";
 									echo "<table class='table table-responsive'><h4>Request List</h4>";
 									echo "<tr>";
 									
@@ -130,10 +132,36 @@
 										echo "<td>" . $row["time"] . "</td>";										
 										echo "<td>" . $row["requestAddress"] . "</td>";
 										echo "<td>" . $row["status"] . "</td>";										
-										echo "<td></td>";										
+										if ($row["techID"] == null )
+										{
+											$sql3 = "SELECT * from techinician";
+											$result3 = mysqli_query($con, $sql3);
+											
+											if (mysqli_num_rows($result3) > 0)
+											{
+												while($row3 = mysqli_fetch_assoc($result3))
+												{
+													$techID = $row["serviceID"];
+													$techName = $row["serviceName"];
+													$speciality = $row["fees"];
+													
+													echo "<option value=\"" . $serviceID . "\">" . $serviceName . " (RM" . $fees . ")" . "</option>";
+												}
+											}
+										}
+										else{
+											$techID = $row["techID"];
+											$sql2 = "SELECT * from request,technician where request.techID=technician.techID and techID='$techID'";
+											$result2 = mysqli_query($con, $sql2);
+											$row2 = mysqli_fetch_assoc($result2);
+											echo "<td>" . $row2["techName"] . "</td>";
+										}										
 										echo "</tr>";
 									}
 									echo "</table>";
+									echo "<input type='submit' name='submit' class='btn btn-success btn-lg pull-right' value='submit'>";
+									echo "</form></br>";
+									$_SESSION['quesID'] = $quesList;
 									echo "</br>";
 									
 								}

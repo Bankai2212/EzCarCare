@@ -61,7 +61,40 @@
 				</div>
 				<div class="col-lg-12 col-sm-12 col-xs-12" style="height:5px;"></div>
 			</div>
-			
+			<div class="row nav_row">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span> 
+							</button>
+							<a class="navbar-brand visible-xs" href="#">Menu</a>
+						</div>
+						<div class="collapse navbar-collapse" id="myNavbar">
+							<ul class="nav nav-pills nav-justified">
+								<li class="active"><a href="userWelcome.php">Home</a></li>
+								<li class="dropdown"><a href="#">About</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Contact Us</a></li>
+									</ul>
+								</li>
+								<li class="dropdown"><a href="#">Services</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Repair Services</a></li>
+										<li><a href="#">Maintenance</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Place Request</a></li>
+								<li><a href="#">Pricing</a></li>
+								<li><a href="#">Partners</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
 			
 			<h3 id="formHead">Request for Services</h3>
 			<form class="form-horizontal" action="requestInput.php" method="post">
