@@ -138,9 +138,9 @@
 									echo "<th>" . "Service Name" . "</th>";
 									echo "<th>" . "Description" . "</th>";
 									echo "<th>" . "Car Model" . "</th>";
-									echo "<th>" . "Date" . "</th>";
-									echo "<th>" . "Time" . "</th>";
+									echo "<th>" . "DateTime" . "</th>";
 									echo "<th>" . "Address" . "</th>";
+									echo "<th>" . "State" . "</th>";
 									echo "<th>" . "Status" . "</th>";									
 									echo "<th>" . "Technician" . "</th>";
 									
@@ -153,9 +153,9 @@
 										echo "<td>" . $row["serviceName"] . "</td>";
 										echo "<td>" . $row["description"] . "</td>";
 										echo "<td>" . $row["carModel"] . "</td>";
-										echo "<td>" . $row["date"] . "</td>";
-										echo "<td>" . $row["time"] . "</td>";										
+										echo "<td>" . $row["dateTime"] . "</td>";										
 										echo "<td>" . $row["requestAddress"] . "</td>";
+										echo "<td>" . $row["requestState"] . "</td>";
 										echo "<td>" . $row["status"] . "</td>";
 										
 										if ($row["techID"] == null )
@@ -164,7 +164,7 @@
 										}
 										else{
 											$techID = $row["techID"];
-											$sql2 = "SELECT * from request,technician where request.techID=technician.techID and techID='$techID'";
+											$sql2 = "SELECT * from request,technician where request.techID=technician.techID and request.techID='$techID'";
 											$result2 = mysqli_query($con, $sql2);
 											$row2 = mysqli_fetch_assoc($result2);
 											echo "<td>" . $row2["techName"] . "</td>";
