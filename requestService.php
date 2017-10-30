@@ -97,7 +97,7 @@
 			</div>
 			
 			<h3 id="formHead">Request for Services</h3>
-			<form class="form-horizontal" action="requestInput.php" method="post">
+			<form class="form-horizontal" action="requestInput.php" method="post" onsubmit="return checkInput(this)">
 				<fieldset>
 					<legend>Request Details</legend>
 					<div class="container">
@@ -244,6 +244,26 @@
 									<input type="radio" name="address" value="new" onclick="chooseNew()"/> Other Address
 										<textarea name="newAddress" id="newAddress" class="form-control" 
 											onfocus="focusing(this)" onblur="blurring(this)" disabled></textarea>
+										<select class="form-control inputbar" name="requestState" id="requestState" 
+											onfocus="focusing(this)" onblur="blurring(this)" disabled>
+											<option value="">--CHOOSE THE REQUEST STATE-- </option>
+											<option value="Perlis"> PERLIS </option>
+											<option value="Kedah"> KEDAH </option>
+											<option value="Pulau Pinang"> PULAU PINANG </option>
+											<option value="Perak"> PERAK </option>
+											<option value="Selangor"> SELANGOR </option>
+											<option value="Negeri Sembilan"> NEGERI SEMBILAN </option>
+											<option value="Melaka"> MELAKA </option>
+											<option value="Johor"> JOHOR </option>
+											<option value="Pahang"> PAHANG </option>
+											<option value="Terengganu"> TERENGGANU </option>
+											<option value="Kelantan"> KELANTAN </option>
+											<option value="Sabah"> SABAH </option>
+											<option value="Sarawak"> SARAWAK </option>
+											<option value="WP Kuala Lumpur"> WP KUALA LUMPUR </option>
+											<option value="Labuan"> WP LABUAN </option>
+											<option value="Putrajaya"> WP PUTRAJAYA </option>
+										</select>
 								</div>
 							</div>
 						</div>
@@ -370,13 +390,30 @@
 		function chooseDefault()
 		{
 			document.getElementById("newAddress").disabled = true;
-			document.getElementById("newAddress").style.background = "white";
+			document.getElementById("requestState").disabled = true;
 		}
 		
 		function chooseNew()
 		{
 			document.getElementById("newAddress").disabled = false;
-			document.getElementById("newAddress").style.background = "#e8f8ff";
+			document.getElementById("requestState").disabled = false;
+		}
+		
+		function checkInput(x)
+		{			
+			if(x.address.value == "new")
+			{
+				if(x.newAddress.value == "")
+				{
+					alert("Please fill in the address field.");
+					return false;
+				}
+				else if(x.requestState.value == "")
+				{
+					alert("Please choose a state for your request.");
+					return false;
+				}
+			}
 		}
 	</script>
 </html>

@@ -16,24 +16,27 @@
 		$time = $_POST['time'];
 		$carModel = $_POST['carModel'];
 		$requestAddress;
+		$requestState;
 		if($_POST['address'] == "default")
 		{
-			$sql2 = "SELECT address from Customer where customerID='$customerID'";
+			$sql2 = "SELECT address, state from Customer where customerID='$customerID'";
 			$result2 = mysqli_query($con, $sql2);
 											
 			if (mysqli_num_rows($result2) > 0)
 			{
 				$row = mysqli_fetch_assoc($result2);
 				$requestAddress = $row["address"];
+				$requestState = $row["state"];
 			}						
 		}
 		else
 		{
 			$requestAddress = $_POST['newAddress'];
+			$requestState = $_POST["requestState"];
 		}
 		
-		$sql = "INSERT INTO Request (description, date, time, carModel, requestAddress, status, serviceID, customerID) 
-			VALUES ('$description', '$date', '$time', '$carModel', '$requestAddress', 'Pending', '$serviceID', '$customerID')";
+		$sql = "INSERT INTO Request (description, date, time, carModel, requestAddress, requestState, status, serviceID, customerID) 
+			VALUES ('$description', '$date', '$time', '$carModel', '$requestAddress', '$requestState', 'Pending', '$serviceID', '$customerID')";
 		mysqli_query($con, $sql);
 	}
 	
