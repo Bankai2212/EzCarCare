@@ -153,20 +153,9 @@
 						<div class="row">
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
-									Request Date<span id="required">*</span></label>
+									Request Date & Time<span id="required">*</span></label>
 								<div class="col-lg-3 col-sm-3 col-xs-12">
-									<input type="date" name="date" class="form-control inputbar" id="date" required 
-										onfocus="focusing(this)" onblur="blurring(this)"/>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label col-lg-2 col-sm-3 col-xs-12" id="formLabel">
-									Request Time<span id="required">*</span></label>
-								<div class="col-lg-3 col-sm-3 col-xs-12">
-									<input type="time" name="time" class="form-control inputbar" id="time" required 
+									<input type="datetime-local" name="dateTime" class="form-control inputbar" id="dateTime" required 
 										onfocus="focusing(this)" onblur="blurring(this)"/>
 								</div>
 							</div>
@@ -414,6 +403,15 @@
 					return false;
 				}
 			}
+			
+			var dateTime = x.dateTime.value;
+			var toDate = new Date();
+
+			if (new Date(dateTime).getTime() < toDate.getTime()) 
+			{
+				 alert("The date and time must be bigger than the current date and time.");
+				 return false;
+			 }
 		}
 	</script>
 </html>

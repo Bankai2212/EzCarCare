@@ -12,8 +12,7 @@
 		$customerID = $_SESSION['CustomerID'];
 		$serviceID = $_POST['service'];
 		$description = $_POST['description'];
-		$date = $_POST['date'];
-		$time = $_POST['time'];
+		$dateTime = $_POST['dateTime'];
 		$carModel = $_POST['carModel'];
 		$requestAddress;
 		$requestState;
@@ -35,8 +34,8 @@
 			$requestState = $_POST["requestState"];
 		}
 		
-		$sql = "INSERT INTO Request (description, date, time, carModel, requestAddress, requestState, status, serviceID, customerID) 
-			VALUES ('$description', '$date', '$time', '$carModel', '$requestAddress', '$requestState', 'Pending', '$serviceID', '$customerID')";
+		$sql = "INSERT INTO Request (description, dateTime, carModel, requestAddress, requestState, status, serviceID, customerID) 
+			VALUES ('$description', '$dateTime', '$carModel', '$requestAddress', '$requestState', 'Pending', '$serviceID', '$customerID')";
 		mysqli_query($con, $sql);
 	}
 	
