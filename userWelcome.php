@@ -25,9 +25,9 @@
 			</div>
 			<div class="row" id="header">
 				<div class="col-lg-offset-2 col-lg-1 col-md-offset-2 col-md-1 col-sm-offset-2 col-sm-1">
-					<a href="adminWelcome.php"><img id="headerImage" src="Picture/Logo/EzCarCareLogo.png" alt="EzCarCare Logo" class="img-responsive pull-left"/></a>
+					<a href="userWelcome.php"><img id="headerImage" src="Picture/Logo/EzCarCareLogo.png" alt="EzCarCare Logo" class="img-responsive pull-left"/></a>
 				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2"><a href="adminWelcome.php" id="logoTitle"><h1><b>EzCarCare</b></h1></a></div>
+				<div class="col-lg-2 col-md-2 col-sm-2"><a href="userWelcome.php" id="logoTitle"><h1><b>EzCarCare</b></h1></a></div>
 			</div>
 			<div class="row" id="header">
 				<div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 visible-lg visible-md visible-sm">
