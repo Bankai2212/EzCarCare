@@ -17,6 +17,7 @@
 	{
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['AdminName'] = $row['userName'];
+		$_SESSION['AdminID'] = $row['adminID'];
 		header('location:adminWelcome.php');
 	}
 	else
