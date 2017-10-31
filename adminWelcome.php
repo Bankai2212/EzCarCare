@@ -94,7 +94,7 @@
 								$dbname = "EzCarCareDB";
 								$con = new mysqli($servername, $username, $password, $dbname);
 								
-								$sql = "SELECT * from request,customer,services where request.customerID=customer.customerID and request.serviceID=services.serviceID";
+								$sql = "SELECT * from request,customer,services where request.customerID=customer.customerID and request.serviceID=services.serviceID order by requestID";
 								$result = mysqli_query($con, $sql);
 								
 								if (mysqli_num_rows($result) > 0)

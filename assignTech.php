@@ -17,7 +17,7 @@
 			$assign=$_POST["assignTech$b"];
 			
 				$id=$_SESSION["requestID"][$i];
-				$sql="UPDATE request SET techID='$assign' WHERE requestID=$id";
+				$sql="UPDATE request SET techID='$assign', status='In-progress' WHERE requestID=$id";
 				mysqli_query($con, $sql);
 			
 			
