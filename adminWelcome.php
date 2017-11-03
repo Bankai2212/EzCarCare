@@ -136,7 +136,7 @@
 										{
 											array_push($quesList,$row["requestID"]);
 											echo "<td><select class='form-control inputbar' name='assignTech$count' id='assignTech' ";
-											echo "onfocus='focusing(this)' onblur='blurring(this)' required>";
+											echo "onfocus='focusing(this)' onblur='blurring(this)' >";
 											echo "<option value=''>--CHOOSE ONE-- </option>";
 											$state= $row["requestState"];
 											$sql3 = "SELECT * from technician where techState='$state'";
