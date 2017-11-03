@@ -15,9 +15,9 @@
 		for ($i=0;$i<$a;$i++){
 			$b=$i+1;
 			$assign=$_POST["assignTech$b"];
+			$adminID= $_SESSION["AdminID"];
 			if ($assign!=""){
 				$id=$_SESSION["requestID"][$i];
-				$adminID= $_SESSION["AdminID"];
 				$sql="UPDATE request SET techID='$assign', status='In-progress', adminID='$adminID' WHERE requestID=$id";
 				mysqli_query($con, $sql);
 				
