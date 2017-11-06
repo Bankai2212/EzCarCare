@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 3.5.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 03, 2017 at 10:36 AM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Host: localhost
+-- Generation Time: Nov 06, 2017 at 02:40 AM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `ezcarcaredb`
@@ -28,11 +26,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
-  `adminID` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `admin` (
+  `adminID` int(3) NOT NULL AUTO_INCREMENT,
   `userName` varchar(50) NOT NULL,
-  `password` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `password` varchar(30) NOT NULL,
+  PRIMARY KEY (`adminID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `admin`
@@ -48,8 +47,8 @@ INSERT INTO `admin` (`adminID`, `userName`, `password`) VALUES
 -- Table structure for table `customer`
 --
 
-CREATE TABLE `customer` (
-  `customerID` int(5) NOT NULL,
+CREATE TABLE IF NOT EXISTS `customer` (
+  `customerID` int(5) NOT NULL AUTO_INCREMENT,
   `userName` varchar(50) NOT NULL,
   `password` varchar(30) NOT NULL,
   `telNo` varchar(15) NOT NULL,
@@ -58,8 +57,9 @@ CREATE TABLE `customer` (
   `email` varchar(30) NOT NULL,
   `carModel1` varchar(50) NOT NULL,
   `carModel2` varchar(50) NOT NULL,
-  `carModel3` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `carModel3` varchar(50) NOT NULL,
+  PRIMARY KEY (`customerID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `customer`
@@ -69,7 +69,8 @@ INSERT INTO `customer` (`customerID`, `userName`, `password`, `telNo`, `address`
 (1, 'Axe', '1234', '0123456789', '10, Jalan Perdana 3, Taman Indah Water, 52100', 'WP Kuala Lumpur', 'axe@gmail.com', 'Proton Saga', 'Perodua Myvi', 'Nissan Grand Livina'),
 (2, 'TestUser', '12345678', '0126666666', '66,Jalan 6, Taman 6', 'Negeri Sembilan', 'testuser@gmail.com', '', 'Lamborghini', ''),
 (3, 'Kitty', '1234', '0127151234', '20,Jalan Sepang', 'Selangor', 'kitty123@gmail.com', 'Wira', 'Jazz', ''),
-(4, 'Jacky', '1234', '0124875823', '2, Jalan Duta, Taman Rambutan, 42152', 'WP Kuala Lumpur', 'jacky666@gmail.com', 'Range Rover', 'Avanza', 'Honda Civic');
+(4, 'Jacky', '1234', '0124875823', '2, Jalan Duta, Taman Rambutan, 42152', 'WP Kuala Lumpur', 'jacky666@gmail.com', 'Range Rover', 'Avanza', 'Honda Civic'),
+(5, 'Strange', '1234', '0125321634', '18, Jalan US, Taman Rich, 52357', 'Pahang', 'strange@gmail.com', 'BMW', 'Audi', 'Ferrari');
 
 -- --------------------------------------------------------
 
@@ -77,8 +78,8 @@ INSERT INTO `customer` (`customerID`, `userName`, `password`, `telNo`, `address`
 -- Table structure for table `request`
 --
 
-CREATE TABLE `request` (
-  `requestID` int(5) NOT NULL,
+CREATE TABLE IF NOT EXISTS `request` (
+  `requestID` int(5) NOT NULL AUTO_INCREMENT,
   `description` varchar(200) NOT NULL,
   `dateTime` varchar(20) NOT NULL,
   `carModel` varchar(50) NOT NULL,
@@ -88,8 +89,13 @@ CREATE TABLE `request` (
   `serviceID` int(3) NOT NULL,
   `techID` int(3) DEFAULT NULL,
   `customerID` int(5) NOT NULL,
-  `adminID` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `adminID` int(3) DEFAULT NULL,
+  PRIMARY KEY (`requestID`),
+  KEY `techID` (`techID`),
+  KEY `serviceID` (`serviceID`),
+  KEY `customerID` (`customerID`),
+  KEY `adminID` (`adminID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `request`
@@ -100,7 +106,10 @@ INSERT INTO `request` (`requestID`, `description`, `dateTime`, `carModel`, `requ
 (14, 'The front bumper has been broken and need to be replaced by a new one.', '2017-11-17T10:00', 'Nissan Grand Livina', '5, Jalan 8, Taman 10, 57295', 'Melaka', 'Pending', 27, NULL, 1, NULL),
 (15, 'I want to polish my car', '2017-11-17T14:30', 'Jazz', '20,Jalan Sepang', 'Selangor', 'In-progress', 19, 19, 3, 1),
 (16, 'I want to check my car tyre.', '2017-11-18T15:00', 'Honda Civic', '2, Jalan Duta, Taman Rambutan, 42152', 'WP Kuala Lumpur', 'In-progress', 15, 33, 4, 1),
-(17, 'I want to wash my car.', '2017-11-20T16:00', 'Range Rover', '33, Jalan Melaka, Taman Melaka, 66143', 'Melaka', 'In-progress', 16, 32, 4, 1);
+(17, 'I want to wash my car.', '2017-11-20T16:00', 'Range Rover', '33, Jalan Melaka, Taman Melaka, 66143', 'Melaka', 'In-progress', 16, 32, 4, 1),
+(18, 'There is a weird sound when driving.', '2017-11-20T10:00', 'Wira', '20,Jalan Sepang', 'Selangor', 'In-progress', 20, 36, 3, 1),
+(19, 'There is a weird sound when driving.', '2017-11-20T10:00', 'Wira', '34, Jalan Kepong, Taman Kep, 52011', 'WP Kuala Lumpur', 'In-progress', 20, 37, 3, 1),
+(20, 'I wish to polish my car.', '2017-11-21T10:00', 'Wira', '20,Jalan Sepang', 'Selangor', 'In-progress', 19, 19, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -108,12 +117,13 @@ INSERT INTO `request` (`requestID`, `description`, `dateTime`, `carModel`, `requ
 -- Table structure for table `services`
 --
 
-CREATE TABLE `services` (
-  `serviceID` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `services` (
+  `serviceID` int(3) NOT NULL AUTO_INCREMENT,
   `serviceName` varchar(50) NOT NULL,
   `serviceType` varchar(30) NOT NULL,
-  `fees` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `fees` int(5) NOT NULL,
+  PRIMARY KEY (`serviceID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `services`
@@ -141,15 +151,16 @@ INSERT INTO `services` (`serviceID`, `serviceName`, `serviceType`, `fees`) VALUE
 -- Table structure for table `technician`
 --
 
-CREATE TABLE `technician` (
-  `techID` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `technician` (
+  `techID` int(3) NOT NULL AUTO_INCREMENT,
   `techName` varchar(50) NOT NULL,
   `techTelNo` varchar(15) NOT NULL,
   `techAddress` varchar(100) NOT NULL,
   `techState` varchar(20) NOT NULL,
   `techEmail` varchar(30) NOT NULL,
-  `specialty` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `specialty` varchar(50) NOT NULL,
+  PRIMARY KEY (`techID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `technician`
@@ -175,75 +186,11 @@ INSERT INTO `technician` (`techID`, `techName`, `techTelNo`, `techAddress`, `tec
 (30, 'Tony Stark', '01154875263', '4, Jalan 1, Taman 5, 77811', 'Labuan', 'Ironman@gmail.com', 'Vehicle Exterior Expert'),
 (31, 'Doctor Strange', '0136587458', '9, Jalan 8, Taman 8, 56282', 'Putrajaya', 'Dr.Strange@gmail.com', 'Car Tyre Exchange'),
 (32, 'Donald Trump', '0154874523', '5, Jalan 4, Taman 6, 55927', 'Melaka', 'DT879@gmail.com', 'Car Washing'),
-(33, 'Sherlock Holmes', '0154236987', '3, Baker Street, Taman Metropoliton, 49184', 'WP Kuala Lumpur', 'sherlock@gmail.com', 'Check Tyre Master');
+(33, 'Sherlock Holmes', '0154236987', '3, Baker Street, Taman Metropoliton, 49184', 'WP Kuala Lumpur', 'sherlock@gmail.com', 'Check Tyre Master'),
+(35, 'Siti Nor', '0156896584', '12, Jalan Mewah, Taman Setia, 52200', 'Sabah', 'Siti@gmail.com', 'Check Interior Expert'),
+(36, 'Low Hiat', '0125689854', '23, Jalan 4, Taman 47, 54875', 'Selangor', 'low@gmail.com', 'Check Interior Expert'),
+(37, 'Holly', '0158459685', '8, Jalan 23, Taman Huat, 54125', 'WP Kuala Lumpur', 'holly@gmail.com', 'Check Interior Expert');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`adminID`);
-
---
--- Indexes for table `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customerID`);
-
---
--- Indexes for table `request`
---
-ALTER TABLE `request`
-  ADD PRIMARY KEY (`requestID`),
-  ADD KEY `techID` (`techID`),
-  ADD KEY `serviceID` (`serviceID`),
-  ADD KEY `customerID` (`customerID`),
-  ADD KEY `adminID` (`adminID`);
-
---
--- Indexes for table `services`
---
-ALTER TABLE `services`
-  ADD PRIMARY KEY (`serviceID`);
-
---
--- Indexes for table `technician`
---
-ALTER TABLE `technician`
-  ADD PRIMARY KEY (`techID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `adminID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `customer`
---
-ALTER TABLE `customer`
-  MODIFY `customerID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `request`
---
-ALTER TABLE `request`
-  MODIFY `requestID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `services`
---
-ALTER TABLE `services`
-  MODIFY `serviceID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
---
--- AUTO_INCREMENT for table `technician`
---
-ALTER TABLE `technician`
-  MODIFY `techID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- Constraints for dumped tables
 --
@@ -256,7 +203,6 @@ ALTER TABLE `request`
   ADD CONSTRAINT `request_ibfk_2` FOREIGN KEY (`serviceID`) REFERENCES `services` (`serviceID`),
   ADD CONSTRAINT `request_ibfk_3` FOREIGN KEY (`customerID`) REFERENCES `customer` (`customerID`),
   ADD CONSTRAINT `request_ibfk_4` FOREIGN KEY (`adminID`) REFERENCES `admin` (`adminID`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
